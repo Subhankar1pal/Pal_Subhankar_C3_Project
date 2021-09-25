@@ -54,6 +54,15 @@ public class Restaurant {
         menu.remove(itemToBeRemoved);
     }
     
+    public int getTotalPrice(List<Item> orderedItems) {
+    	
+    	int totalPrice=0;
+    	for (Item item : orderedItems) {
+    		totalPrice = totalPrice + item.getPrice();
+    	}
+    	return totalPrice;
+    }
+    
     public LocalTime getOpeningTime() {
 		return openingTime;
 	}

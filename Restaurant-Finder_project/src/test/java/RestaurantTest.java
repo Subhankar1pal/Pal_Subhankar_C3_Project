@@ -48,6 +48,26 @@ class RestaurantTest {
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     
+    @Test
+    public void get_order_total_price_for_multiple_menu_items() {
+    	
+    	restaurant = createTestRestaurantWithMenu();
+        restaurant.addToMenu("Chesse Sandwitch", 200);
+        
+        int totalPrice = restaurant.getTotalPrice(restaurant.getMenu());
+        
+        assertEquals(588,totalPrice);
+    }
+    
+    @Test
+    public void get_order_total_price_for_no_menu_item() {
+    	
+    	restaurant = new Restaurant("Amelie's cafe","Chennai",LocalTime.parse("10:30:00"),LocalTime.parse("21:00:00"));
+        
+        int totalPrice = restaurant.getTotalPrice(restaurant.getMenu());
+        
+        assertEquals(0,totalPrice);
+    }
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test

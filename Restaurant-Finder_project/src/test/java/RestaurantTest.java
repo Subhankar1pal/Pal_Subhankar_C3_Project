@@ -34,6 +34,17 @@ class RestaurantTest {
     	assertTrue(isRestaurantOpen);
     	
     }
+    
+    @Test
+    public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
+    	
+    	restaurant = new Restaurant("Amelie's cafe","Chennai",LocalTime.parse("12:00:00"),LocalTime.parse("12:00:00"));
+    	
+    	boolean isRestaurantOpen = restaurant.isRestaurantOpen();
+		 
+    	assertFalse(isRestaurantOpen);
+
+    }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     
